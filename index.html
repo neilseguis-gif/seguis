@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | PhoneHub</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0a1024;
+            --blue: #2563eb;
+            --cyan: #38bdf8;
+            --text: #172033;
+            --muted: #718096;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background:
+                radial-gradient(circle at 15% 20%,
+                    #1e40af 0, transparent 35%),
+                radial-gradient(circle at 85% 80%,
+                    #075985 0, transparent 35%),
+                linear-gradient(135deg, #080d1c, #111c38);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 22px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+			 gap: 15px;
+            background: #080d1cdd;
+            border-bottom: 1px solid #ffffff18;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 43px;
+            height: 43px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            border-radius: 13px;
+            box-shadow: 0 5px 20px #2563eb55;
+        }
+
+        .phone {
+            width: 18px;
+            height: 29px;
+            border: 2px solid white;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .phone::before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 2px;
+            background: white;
+			top: 3px;
+            left: 5px;
+            border-radius: 2px;
+        }
+
+        .phone::after {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            bottom: 2px;
+            left: 5px;
+        }
+
+        .brand-name {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .brand-name span {
+            color: var(--cyan);
+        }
+
+        .header-note {
+            color: #b9c7e6;
+            font-size: 13px;
+        }
+		
+		main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 45px 18px;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 440px;
+            background: #ffffff;
+            padding: 38px;
+            border-radius: 24px;
+            box-shadow: 0 25px 80px #00000045;
+            animation: appear 0.6s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-area {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .big-logo {
+            width: 75px;
+            height: 75px;
+            border-radius: 23px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #1d4ed8, #38bdf8);
+            box-shadow: 0 10px 25px #2563eb35;
+        }
+
+        .big-logo .phone {
+            width: 29px;
+            height: 47px;
+            border-width: 2.5px;
+            border-radius: 7px;
+        }
+
+        .big-logo .phone::before {
+            width: 8px;
+            left: 8px;
+            top: 5px;
+            height: 2px;
+        }
+
+        .big-logo .phone::after {
+            width: 5px;
+            height: 5px;
+            left: 10px;
+            bottom: 4px;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--navy);
+            font-size: 30px;
+            letter-spacing: -0.8px;
+            margin-bottom: 9px;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #26334a;
+            margin: 17px 0 9px;
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #dbe3ef;
+            border-radius: 10px;
+            background: #f8faff;
+            font-size: 15px;
+            color: var(--text);
+            transition: 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--blue);
+            background: white;
+            box-shadow: 0 0 0 4px #2563eb15;
+        }
+
+        input::placeholder {
+            color: #a0aec0;
+        }
+
+        .login-button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            background: linear-gradient(110deg, #1d4ed8, #0284c7);
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 8px 18px #2563eb30;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px #2563eb45;
+        }
+
+        .login-button:active {
+            transform: translateY(0);
+        }
+
+        #message {
+            color: #dc2626;
+            background: #fef2f2;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-top: 15px;
+        }
+
+        #message:empty {
+            display: none;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 23px;
+            font-size: 14px;
+            line-height: 2;
+            color: var(--muted);
+        }
+
+        .links a {
+            color: var(--blue);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #a0aec0;
+            font-size: 12px;
+            margin: 19px 0 12px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #e5eaf2;
+        }
+
+        .guest-button {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            border: 1px solid #dbe3ef;
+            border-radius: 10px;
+            color: #26334a !important;
+            transition: 0.2s;
+        }
+
+        .guest-button:hover {
+            background: #f1f6ff;
+            text-decoration: none !important;
+        }
+
+        footer {
+            padding: 20px 15px;
+            text-align: center;
+            color: #aebbd5;
+            font-size: 12px;
+            border-top: 1px solid #ffffff18;
+            background: #080d1c88;
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 17px 20px;
+            }
+
+            .brand-name {
+                font-size: 22px;
+            }
+
+            .header-note {
+                display: none;
+            }
+
+            main {
+                padding: 30px 16px;
+            }
+
+            .login-box {
+                padding: 30px 22px;
+                border-radius: 19px;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="home.html" class="brand" aria-label="PhoneHub home">
+            <div class="brand-icon">
+                <div class="phone"></div>
+            </div>
+
+            <div class="brand-name">
+                Phone<span>Hub</span>
+            </div>
+        </a>
+
+        <p class="header-note">Your world. Connected.</p>
+    </header>
+
+    <main>
+        <section class="login-box">
+
+            <div class="logo-area">
+                <div class="big-logo" aria-hidden="true">
+                    <div class="phone"></div>
+                </div>
+            </div>
+
+            <h2>Welcome Back!</h2>
+
+            <p class="subtitle">
+                Sign in to your PhoneHub account<br>
+                and explore your favorite tech.
+            </p>
+
+            <form onsubmit="return checkLogin()">
+
+                <label for="username">Username or Email</label>
+
+                <div class="input-wrap">
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username or email"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <label for="password">Password</label>
+
+                <div class="input-wrap">
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="login-button">
+                    SIGN IN &rarr;
+                </button>
+
+                <p id="message" role="alert" aria-live="polite"></p>
+
+            </form>
+
+            <div class="links">
+                <a href="#">Forgot Password?</a>
+
+                <div class="divider">OR</div>
+
+                <a href="#" class="guest-button">
+                    Continue as Guest
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+         PhoneHub. All Rights Reserved.</p>
+        <p style="margin-top: 6px;">
+            Your world. Connected.
+        </p>
+    </footer>
+
+    <script>
+        function checkLogin() {
+            const username = document
+                .getElementById("username")
+                .value.trim();
+
+            const password = document
+                .getElementById("password")
+                .value;
+
+            const message = document
+                .getElementById("message");
+
+            // Demo credentials only.
+            if (
+                username === "neil" &&
+                password === "seguis"
+            ) {
+                window.location.href = "PhoneHub.html";
+            } else {
+                message.textContent =
+                    "Incorrect username or password. Please try again.";
+            }
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>

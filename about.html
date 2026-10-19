@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhoneHub | About Us</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f7fc;
+    color: #142b49;
+    line-height: 1.6;
+}
+
+/* NAVIGATION */
+
+header {
+    background: #09182c;
+    color: white;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #16baff;
+}
+
+nav {
+    display: flex;
+    gap: 23px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #16baff;
+}
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 360px;
+    padding: 65px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    color: white;
+    background:
+        radial-gradient(circle at 75% 30%, #087bc9, transparent 35%),
+        linear-gradient(120deg, #07182f, #064a86, #07182f);
+}
+
+.hero-text {
+    max-width: 570px;
+}
+
+.eyebrow {
+    color: #65dcff;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 5vw, 55px);
+    line-height: 1.15;
+    margin: 18px 0;
+}
+
+.hero h1 span {
+    color: #22baff;
+}
+
+.hero p {
+    color: #d8eaff;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(90deg, #087de0, #11b8ef);
+    color: white;
+    padding: 13px 23px;
+    border-radius: 9px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px #0003;
+}
+
+.hero-art {
+    width: 280px;
+    min-width: 220px;
+    height: 250px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #10b8ef, #102b62);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120px;
+    box-shadow: 0 15px 45px #0004;
+    transform: rotate(4deg);
+}
+
+/* GENERAL SECTIONS */
+
+.container {
+    max-width: 1120px;
+    margin: auto;
+    padding: 65px 25px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: #6b7b90;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* ABOUT SECTION */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.about-visual {
+    min-height: 300px;
+    background: linear-gradient(145deg, #dff4ff, #b8ddff);
+    border-radius: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120px;
+    box-shadow: 0 10px 30px #12345612;
+}
+
+.about-text h2 {
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.about-text p {
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+/* MISSION AND VISION */
+
+.mission-section {
+    background: white;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: #f7faff;
+    border: 1px solid #dce8f6;
+    padding: 30px 25px;
+    border-radius: 17px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px #12345612;
+}
+
+.card-icon {
+    width: 58px;
+    height: 58px;
+    background: #dcefff;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.card p {
+    color: #687990;
+    font-size: 14px;
+}
+
+/* WHY CHOOSE US */
+
+.reasons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.reason {
+    display: flex;
+    gap: 15px;
+    padding: 22px;
+    background: white;
+    border-radius: 14px;
+    border: 1px solid #e0eaf5;
+}
+
+.check {
+    color: #078cff;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.reason h3 {
+    margin-bottom: 7px;
+    font-size: 17px;
+}
+
+.reason p {
+    color: #6b7b90;
+    font-size: 13px;
+}
+
+/* CALL TO ACTION */
+
+.cta {
+    margin: 0 5% 60px;
+    padding: 48px 25px;
+    text-align: center;
+    color: white;
+    border-radius: 22px;
+    background: linear-gradient(120deg, #07182f, #075ca3, #087bc9);
+}
+
+.cta h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: #d8eaff;
+    margin-bottom: 24px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #09182c;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer .logo {
+    font-size: 25px;
+}
+
+footer p {
+    color: #b8c7d9;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+@media (max-width: 750px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 45px 25px;
+    }
+
+    .hero-art {
+        width: 200px;
+        height: 180px;
+        min-width: 0;
+        font-size: 85px;
+    }
+
+    .about-grid,
+    .cards,
+    .reasons {
+        grid-template-columns: 1fr;
+    }
+
+    .about-visual {
+        min-height: 220px;
+    }
+
+    .section-heading h2,
+    .about-text h2 {
+        font-size: 26px;
+    }
+
+    .cta h2 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="logo"> Phone<span>Hub</span></div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="PhoneHub.html">Shop</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+		<a href="log out.html">log out</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <span class="eyebrow">GET TO KNOW US</span>
+
+        <h1>Technology for Everyone.<br>
+            <span>Welcome to PhoneHub.</span>
+        </h1>
+
+        <p>
+            Your trusted destination for discovering smartphones,
+            exploring top brands, and finding the right device
+            for your everyday needs.
+        </p>
+
+        <a href="PhoneHub.html" class="button">
+            Explore Our Phones 
+        </a>
+    </div>
+
+    <div class="hero-art"><img src="2.jpg" alt="My Picture" width="200" height="200" style="vertical-align: middle; border-radius:20px;"></div>
+</section>
+
+<!-- OUR STORY -->
+<section class="container">
+    <div class="about-grid">
+
+        <div class="about-visual">
+         <img src="1.jpg" alt="Phone" width="245" height="245" style="vertical-align: middle; border-radius:20px;">
+        </div>
+
+        <div class="about-text">
+            <span class="eyebrow">OUR STORY</span>
+
+            <h2>About PhoneHub</h2>
+
+            <p>
+                PhoneHub is a cellphone shopping website created to
+                make exploring smartphones easier and more convenient.
+                We bring different phone brands and models together
+                in one place so customers can compare their options.
+            </p>
+
+            <p>
+                From everyday smartphones to devices with advanced
+                cameras, powerful performance, and modern designs,
+                PhoneHub helps customers discover phones that suit
+                their preferences and budgets.
+            </p>
+
+            <p>
+                Our goal is to provide a simple, organized, and
+                enjoyable online shopping experience for everyone
+                who loves mobile technology.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- MISSION, VISION, VALUES -->
+<section class="mission-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>What Makes PhoneHub Special</h2>
+            <p>
+                We believe that finding your next smartphone
+                should be simple, convenient, and enjoyable.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon"><img src="3.jpg" alt="My Picture" width="50" height="50" style="vertical-align: middle; border-radius:20px;"></div>
+                <h3>Our Mission</h3>
+                <p>
+                    To help customers discover and compare smartphones
+                    through an accessible and user-friendly shopping
+                    website that presents useful product information.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><img src="4.jpg" alt="My Picture" width="50" height="50" style="vertical-align: middle; border-radius:20px;"></div>
+                <h3>Our Vision</h3>
+                <p>
+                    To become a trusted online destination for
+                    cellphone enthusiasts by making smartphone
+                    discovery easier and keeping up with technology.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><img src="5.jpg" alt="My Picture" width="50" height="50" style="vertical-align: middle; border-radius:20px;"></div>
+                <h3>Our Values</h3>
+                <p>
+                    We value customer satisfaction, honesty,
+                    convenience, quality information, and continuous
+                    improvement in the online shopping experience.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="container">
+
+    <div class="section-heading">
+        <h2>Why Choose PhoneHub</h2>
+        <p>
+            Discover the features that make browsing our cellphone
+            collection simple and convenient.
+        </p>
+    </div>
+
+    <div class="reasons">
+
+        <div class="reason">
+            <div class="check">*</div>
+            <div>
+                <h3>Wide Phone Selection</h3>
+                <p>
+                    Explore a collection of 13 cellphone products
+                    from different popular brands.
+                </p>
+            </div>
+        </div>
+
+        <div class="reason">
+            <div class="check">*</div>
+            <div>
+                <h3>Easy Product Search</h3>
+                <p>
+                    Find phones by name or brand using the website's
+                    search and filtering features.
+                </p>
+            </div>
+        </div>
+
+        <div class="reason">
+            <div class="check">*</div>
+            <div>
+                <h3>Clear Product Details</h3>
+                <p>
+                    Review displayed prices, storage information,
+                    screen sizes, and camera specifications.
+                </p>
+            </div>
+        </div>
+
+        <div class="reason">
+            <div class="check">*</div>
+            <div>
+                <h3>User-Friendly Design</h3>
+                <p>
+                    Enjoy a clean layout designed for convenient
+                    browsing on computers, tablets, and phones.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="cta">
+    <h2>Ready to Find Your Next Phone</h2>
+
+    <p>
+        Explore our cellphone collection and discover a device
+        that matches your needs.
+    </p>
+
+    <a href="PhoneHub.html#shop" class="button">
+        Shop Smartphones Now 
+    </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="logo"> Phone<span>Hub</span></div>
+
+    <p>Your favorite smartphones, all in one place.</p>
+
+    <p>
+        <a href="index.html"
+           style="color:#b8c7d9;text-decoration:none;">Home</a>
+        &nbsp; | &nbsp;
+        <a href="contact.html"
+           style="color:#b8c7d9;text-decoration:none;">Contact Us</a>
+        &nbsp; | &nbsp;
+        <a href="login.html"
+           style="color:#b8c7d9;text-decoration:none;">Login</a>
+    </p>
+
+    <p>PhoneHub. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
